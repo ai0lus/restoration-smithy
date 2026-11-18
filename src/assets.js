@@ -6,7 +6,17 @@
   const EXTS = ['png', 'svg'];
 
   function load(names) {
+    // Single-file build (tools/build_single.ps1): images are embedded as data URLs in
+    // window.EMBED_ASSETS, and anything not embedded is simply skipped (canvas fallback).
+    const embed = window.EMBED_ASSETS;
     for (const n of names) {
+      if (embed) {
+        if (!embed[n]) continue;
+        const im = new Image();
+        im.onload = () => { imgs[n] = im; };
+        im.src = embed[n];
+        continue;
+      }
       let i = 0;
       const im = new Image();
       im.onload = () => { imgs[n] = im; };

@@ -4,6 +4,9 @@ art_src/
 # old blacksmith portraits, no longer used by the game
 assets/images/smith/
 
+# single-file build output (tools/build_single.ps1)
+dist/
+
 # local tool settings
 .claude/settings.local.json
 
