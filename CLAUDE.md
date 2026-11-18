@@ -60,4 +60,4 @@
 ## 배포
 - Claude 아티팩트: `index.html` + `files`에 `src/*.js` 와 `assets/images/**/*.png`(축소본, `art_src/`는 제외).
 - 단일 HTML 파일(공유용): `powershell -ExecutionPolicy Bypass -File tools\build_single.ps1` → `dist/restoration-smithy.html`(약 7.5MB). 스크립트를 인라인하고, 게임이 쓰는 그림(의뢰인 768px로 축소, 아이템, `ui/icon_*`)만 `window.EMBED_ASSETS`에 data URL로 넣음. `Assets.load`는 `EMBED_ASSETS`가 있으면 거기서만 읽고 나머지는 건너뜀. 코드나 그림을 바꾸면 다시 빌드. `dist/`는 git 제외.
-- GitHub: 비공개 저장소 `ai0lus/restoration-smithy`(main).
+- GitHub: **공개** 저장소 `ai0lus/restoration-smithy`(main). GitHub Pages(main 루트)로 https://ai0lus.github.io/restoration-smithy/ 에서 플레이 가능 — main에 push하면 자동 재배포.
