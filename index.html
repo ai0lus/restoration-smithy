@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1d1714">
+<title>Restoration Smithy</title>
+<style>
+  :root { --bg:#f4f1ea; --muted:#6b6b70; --frame:#e6d9df; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg:#121214; --muted:#8d8d96; --frame:#2a2a30; }
+  }
+  :root[data-theme="dark"] { --bg:#121214; --muted:#8d8d96; --frame:#2a2a30; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; height:100%; background:var(--bg); overflow:hidden;
+    font:13px/1.4 system-ui, "Segoe UI", "Malgun Gothic", sans-serif;
+    -webkit-user-select:none; user-select:none; -webkit-tap-highlight-color:transparent; touch-action:manipulation; }
+  body { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;
+    padding:max(8px, env(safe-area-inset-top)) 8px max(8px, env(safe-area-inset-bottom)); }
+  /* 9:16 portrait canvas, as large as fits the viewport */
+  canvas { display:block; aspect-ratio:9/16; width:auto;
+    height:min(calc(100dvh - 44px), calc((100vw - 16px) * 16 / 9));
+    border:1px solid var(--frame); border-radius:14px; background:#1d1714; touch-action:none; }
+  .hint { color:var(--muted); font-size:12px; text-align:center; }
+  @media (max-width: 600px) {
+    body { padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom); }
+    canvas { height:min(100dvh, calc(100vw * 16 / 9)); border:0; border-radius:0; }
+    .hint { display:none; }
+  }
+</style>
+</head>
+<body>
+  <canvas id="game" width="540" height="960"></canvas>
+  <div class="hint">화살표를 순서대로 빼서 낡은 무기를 수리하세요 · M 소리 · P 일시정지</div>
+  <script src="src/engine.js"></script>
+  <script src="src/sfx.js"></script>
+  <script src="src/fx.js"></script>
+  <script src="src/assets.js"></script>
+  <script src="src/items.js"></script>
+  <script src="src/puzzle.js"></script>
+  <script src="src/game.js"></script>
+</body>
+</html>

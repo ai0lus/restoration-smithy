@@ -1,0 +1,13 @@
+# full-size Codex originals stay on the dev PC (resized copies live in assets/images)
+art_src/
+
+# old blacksmith portraits, no longer used by the game
+assets/images/smith/
+
+# local tool settings
+.claude/settings.local.json
+
+# OS clutter
+Thumbs.db
+Desktop.ini
+.DS_Store
